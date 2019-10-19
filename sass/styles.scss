@@ -1,0 +1,49 @@
+:root {
+  --scroll-bg-now: url("./assets/bg1.jpeg");
+}
+
+body {
+  margin: 0;
+  background-image: var(--scroll-bg-now);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-image 1s ease-in-out;
+}
+
+@keyframes change-bg-img {
+  0% {
+    background-image: var(--scroll-bg-now);
+  }
+  100% {
+    background-image: var(--scroll-bg-next);
+  }
+}
+
+/*  Custom Scrollbar  */
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #a8a8a8;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #8f8f8f;
+}
+
+//  Frosted Glass
+.glass {
+  height: calc(100vh - 64px);
+  background-color: #00000067;
+  backdrop-filter: blur(10px);
+}
