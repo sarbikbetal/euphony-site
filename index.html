@@ -15,49 +15,45 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <div class="container">
+                <div class="container nav-link-wrapper">
                     <a href="#!" class="brand-logo">Logo</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="#red">Red</a></li>
-                        <li><a href="#green">Green</a></li>
-                        <li><a href="#yellow">Yellow</a></li>
-                        <li><a href="#blue">Blue</a></li>
-                    </ul>
+                    <!-- <li><a href="#red" class="active">Red</a></li>
+                    <li><a href="#green" class="">Green</a></li> -->
                 </div>
             </div>
         </nav>
     </div>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="#red">Red</a></li>
-        <li><a href="#green">Green</a></li>
-        <li><a href="#yellow">Yellow</a></li>
-        <li><a href="#blue">Blue</a></li>
+        <li><a srl-to="0" href="#red" class="nav-ctl">Red</a></li>
+        <li><a srl-to="1" href="#green" class="nav-ctl">Green</a></li>
+        <li><a srl-to="2" href="#yellow" class="nav-ctl">Yellow</a></li>
+        <li><a srl-to="3" href="#blue" class="nav-ctl">Blue</a></li>
     </ul>
 
-    <div id="red" class="row scroll-sections">
+    <div data-section-name="red" class="row scroll-section">
         <div class="col s12">
             <div class="card-panel glass">
             </div>
         </div>
     </div>
 
-    <div id="green" class="row scroll-sections">
+    <div data-section-name="green" class="row scroll-section">
         <div class="col s12">
             <div class="card-panel glass">
             </div>
         </div>
     </div>
 
-    <div id="yellow" class="row scroll-sections">
+    <div data-section-name="yellow" class="row scroll-section">
         <div class="col s12">
             <div class="card-panel glass">
             </div>
         </div>
     </div>
 
-    <div id="blue" class="row scroll-sections">
+    <div data-section-name="blue" class="row scroll-section">
         <div class="col s12">
             <div class="card-panel glass">
             </div>
@@ -65,10 +61,10 @@
     </div>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="./scrollify.js"></script>
     <script src="./scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>
