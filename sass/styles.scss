@@ -1,5 +1,5 @@
 :root {
-  --scroll-bg-now: url("./assets/bg1.jpeg");
+  --scroll-bg-now: url("./assets/bg0.jpeg");
 }
 
 body {
@@ -8,15 +8,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   transition: background-image 1s ease-in-out;
-}
-
-@keyframes change-bg-img {
-  0% {
-    background-image: var(--scroll-bg-now);
-  }
-  100% {
-    background-image: var(--scroll-bg-next);
-  }
 }
 
 /*  Custom Scrollbar  */
@@ -46,4 +37,29 @@ body {
   height: calc(100vh - 64px);
   background-color: #00000067;
   backdrop-filter: blur(10px);
+}
+
+// Main text container
+.pinned {
+  z-index: 10;
+  top: 10%;
+  left: 5%;
+}
+@media #{$medium-and-up} {
+  .pinned {
+    top: 15%;
+    left: 7.5%;
+  }
+}
+@media #{$large-and-up} {
+  .pinned {
+    top: 20%;
+    left: 15%;
+  }
+}
+
+// Main Headline
+.headline {
+  opacity: 1;
+  transition: opacity 0.9s ease-in;
 }

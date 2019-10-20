@@ -1,68 +1,65 @@
+var titles = ["Welcome to Euphony", "Our Events", "Our Music Society", "Crew Members"];
+
 $(function () {
     $.scrollify({
         section: ".scroll-section",
+        // interstitialSection: ".navbar-fixed",
         easing: "easeOutExpo",
         offset: -64,
         before: (i, sec) => {
+            // Change Background Image
             let root = document.querySelector(':root');
             root.style.setProperty('--scroll-bg-now', `url("./assets/bg${i}.jpeg")`);
+
+            // Change active class of navbar
+            var ref = sec[i].attr("data-section-name");
+            $(".nav-link-wrapper .active").removeClass("active");
+            $(".nav-link-wrapper").find("a[href=\"#" + ref + "\"]").parent().addClass("active");
+
+            // Change the headline text
+            document.querySelector(".headline").style.setProperty('opacity', 0);
+        },
+        after: (i) => {
+            document.querySelector(".headline").innerHTML = titles[i];
+            document.querySelector('.headline').style.setProperty('opacity', 1);
         },
         afterRender: () => {
-            // $(".nav-ctl").on('click', (e) => {
-            //     // console.log($(e.target).attr('srl-to'));
-            //     $.scrollify.move();
-            // })
-
-
-            var pagination = "<ul class=\"right hide-on-med-and-down\">";
+            // Auto-Populate navbar and nav-drawer 
+            var navPagination = "<ul class=\"right hide-on-med-and-down\">";
+            var drawerPagination = "";
             var activeClass = "";
             $(".scroll-section").each(function (i) {
                 activeClass = "";
                 if (i === $.scrollify.currentIndex()) {
                     activeClass = "active";
                 }
-                pagination += "<li><a class=\"" + activeClass + "\" href=\"#" + $(this).attr("data-section-name") + "\">" + $(this).attr("data-section-name").charAt(0).toUpperCase() + $(this).attr("data-section-name").slice(1) + "</a></li>";
+                navPagination += "<li class=\"" + activeClass + "\"><a href=\"#" + $(this).attr("data-section-name") + "\">" + $(this).attr("data-section-name").charAt(0).toUpperCase() + $(this).attr("data-section-name").slice(1) + "</a></li>";
+                drawerPagination += "<li><a class=\"sidenav-close " + activeClass + "\" href=\"#" + $(this).attr("data-section-name") + "\">" + $(this).attr("data-section-name").charAt(0).toUpperCase() + $(this).attr("data-section-name").slice(1) + "</a></li>";
             });
 
-            pagination += "</ul>";
+            navPagination += "</ul>";
 
-            $(".nav-link-wrapper").append(pagination);
-
-
-            // let newNode = makeTemplate(pagination)
-            // document.querySelector(".nav-link-wrapper").appendChild(newNode);
-            // console.log(document.querySelector(".nav-link-wrapper"));
-            // console.log(newNode);
-            /*
-      
-            Tip: The two click events below are the same:
-      
-            $(".pagination a").on("click",function() {
-              $.scrollify.move($(this).attr("href"));
-            });
-      
-            */
+            $(".nav-link-wrapper").append(navPagination);
             $(".nav-link-wrapper a").on("click", $.scrollify.move);
+
+            $("#mobile-demo").append(drawerPagination);
+            $("#mobile-demo a").on("click", $.scrollify.move);
         }
     });
 });
 
+// Image Preloader
 
 
-// document.querySelectorAll('.nav-ctl').forEach((elem) => {
-//     elem.addEventListener('click', () => {
-//         console.log(elem);
-//     })
-// });
+var loadedimages = [];
+for (var x = 0; x < 4; x++) {
+    loadedimages[x] = new Image();
+    loadedimages[x].src = `./assets/bg${x}.jpeg`;
+}
 
+
+// Initialize Materialize elements
 document.addEventListener('DOMContentLoaded', function () {
     var sidenav = document.querySelectorAll('.sidenav');
     M.Sidenav.init(sidenav, {});
 });
-
-var makeTemplate = (html) => {
-    var template = document.createElement('template');
-    html = html.trim(); // Never return a text node of whitespace as the result
-    template.innerHTML = html;
-    return template.content.firstChild;
-}
