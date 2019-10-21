@@ -3,6 +3,7 @@ var titles = ["Welcome to Euphony", "Our Events", "Our Music Society", "Crew Mem
 $(function () {
     $.scrollify({
         section: ".scroll-section",
+        scrollSpeed: 800,
         // interstitialSection: ".navbar-fixed",
         easing: "easeOutExpo",
         offset: -64,
