@@ -18,10 +18,18 @@ $(function () {
 
             // Change the headline text
             document.querySelector(".headline").style.setProperty('opacity', 0);
+
+            // Scale out the FAB
+            $(".scale-transition").addClass("scale-out");
         },
         after: (i) => {
+
+            // Change the headline and set opacity to 1
             document.querySelector(".headline").innerHTML = titles[i];
             document.querySelector('.headline').style.setProperty('opacity', 1);
+
+            // Scale up the FAB
+            $(".scale-transition").removeClass("scale-out");
         },
         afterRender: () => {
             // Auto-Populate navbar and nav-drawer 
