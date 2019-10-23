@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background: #00000077;
+  background: #000000;
   background-image: var(--scroll-bg-now);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -43,37 +43,61 @@ body {
 
 //  Frosted Glass
 .glass {
-  background: rgba(17, 84, 184, 0.4);
-  background: linear-gradient(137deg, rgba(17, 84, 184, 0.4) 0%, rgba(162, 82, 166, 0.4) 100%);
-
+  background: #ff5722;
+  // background: linear-gradient(180deg, #ff5722 80%, #ffffff 80%);
   height: 70vh;
   border-radius: 16px;
   // backdrop-filter: blur(10px);
 }
 
+.glass-card {
+  height: 118px;
+  background-color: #fff;
+  border-radius: 16px;
+  position: relative;
+  bottom: calc(-70vh + 118px);
+}
+
+.pd0 {
+  padding: 0 !important;
+}
+
 // Main text container
 .pinned {
-  z-index: 10;
+  position: relative;
+  z-index: 5;
   top: 20vh;
   left: 8%;
   width: 84%;
   margin: 0 auto;
   max-width: 1080px;
 
-  & .row{
+  & .row {
     height: 70vh;
   }
 }
+
+// Vertical align arrow button
+.vhcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media #{$medium-and-up} {
+  .glass-card {
+    height: 70vh;
+    top: 0;
+  }
   .pinned {
     left: 10%;
     width: 80%;
   }
-
   // Vertical align arrow button
-  .align-vert {
-    position: absolute;
-    height: 100%;
+  .vhcenter {
+    right: 0;
+    height: 68vh;
+    justify-content: flex-end;
   }
 }
 @media #{$large-and-up} {
@@ -89,8 +113,28 @@ body {
   transition: opacity 0.2s ease-in;
 }
 
-.align-vert {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+//  Hero Container
+.hero {
+  z-index: 20;
+  position: relative;
+  // & .row {
+  //   z-index: 20;
+  //   border: dashed 7px #ff7b00;
+  // }
+}
+
+.hero-text {
+  font-family: "Pacifico", cursive;
+  text-align: center;
+  color: #f1f1f1;
+}
+
+// Ghost Button
+.ghost-btn {
+  bottom: -30vh;
+  border-radius: 26px;
+  color: #fff;
+  height: 52px;
+  border: solid rgb(0, 255, 55) 4px;
+  font-size: 26px;
 }

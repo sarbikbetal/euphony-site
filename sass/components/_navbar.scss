@@ -16,8 +16,8 @@ nav {
   color: $navbar-font-color;
   @extend .z-depth-1;
   backdrop-filter: blur(10px);
-  background: rgba(17, 84, 184, 0.2);
-  background: linear-gradient(137deg, rgba(17, 84, 184, 0.2) 0%, rgba(162, 82, 166, 0.2) 100%);
+  background: rgba(98, 0, 255, 0.685);
+  // background: linear-gradient(137deg, rgba(17, 84, 184, 0.2) 0%, rgba(162, 82, 166, 0.2) 100%);
   width: 100%;
   height: $navbar-height-mobile;
   line-height: $navbar-line-height-mobile;
