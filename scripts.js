@@ -24,6 +24,8 @@ $(function () {
             $(".nav-link-wrapper .active").removeClass("active");
             $(".nav-link-wrapper").find("a[href=\"#" + ref + "\"]").parent().addClass("active");
 
+            $(".sidenav li.active").removeClass("active");
+            $(".sidenav").find("a[href=\"#" + ref + "\"]").parent().addClass("active");
             // Change the headline text
             document.querySelector(".headline").style.setProperty('opacity', 0);
         },
@@ -48,7 +50,7 @@ $(function () {
                     activeClass = "active";
                 }
                 navPagination += "<li class=\"" + activeClass + "\"><a href=\"#" + $(this).attr("data-section-name") + "\">" + $(this).attr("data-section-name").charAt(0).toUpperCase() + $(this).attr("data-section-name").slice(1) + "</a></li>";
-                drawerPagination += "<li><a class=\"sidenav-close " + activeClass + "\" href=\"#" + $(this).attr("data-section-name") + "\">" + $(this).attr("data-section-name").charAt(0).toUpperCase() + $(this).attr("data-section-name").slice(1) + "</a></li>";
+                drawerPagination += "<li class=\"" + activeClass + "\"><a class=\"sidenav-close\" href=\"#" + $(this).attr("data-section-name") + "\">" + $(this).attr("data-section-name").charAt(0).toUpperCase() + $(this).attr("data-section-name").slice(1) + "</a></li>";
             });
 
             navPagination += "</ul>";

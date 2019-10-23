@@ -8,6 +8,7 @@ body {
   background-image: var(--scroll-bg-now);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
   transition: background-image 1s ease-in-out;
 }
 
